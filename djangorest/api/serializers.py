@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Customer, Order, OrderLine
+from .models import Customer, Order, OrderLine, Product, Supplier
 
 
 class CustomerSerializer(serializers.ModelSerializer):
@@ -28,4 +28,22 @@ class OrderLineSerializer(serializers.ModelSerializer):
         """Meta class to map serializer's fields with the model fields."""
         model = OrderLine
         fields = ('id', 'product','quantity','unit')
+        read_only_fields = ('id', 'id')
+
+class ProductSerializer(serializers.ModelSerializer):
+    """Serializer to map the Model instance into JSON format."""
+
+    class Meta:
+        """Meta class to map serializer's fields with the model fields."""
+        model = Product
+        fields = ('id', 'name','price','stock','supplier_id')
+        read_only_fields = ('id', 'id')
+
+class SupplierSerializer(serializers.ModelSerializer):
+    """Serializer to map the Model instance into JSON format."""
+
+    class Meta:
+        """Meta class to map serializer's fields with the model fields."""
+        model = Supplier
+        fields = ('id', 'name', 'address1', 'address2', 'address3','postnr', 'poststed','phone','email','webpage')
         read_only_fields = ('id', 'id')
