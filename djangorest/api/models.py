@@ -1,6 +1,8 @@
+"""models"""
 from django.db import models
 
 class Customer(models.Model):
+    """Customers"""
     name = models.CharField(max_length=255, blank=False, unique=True)
     address1 = models.CharField(max_length=255, blank=True)
     address2 = models.CharField(max_length=255, blank=True)
@@ -14,8 +16,9 @@ class Customer(models.Model):
         return "{}".format(self.name)
 
 class Order(models.Model):
+    """Orders"""
     order_date = models.DateField(blank=False)
-    ship_date = models.DateField(blank=True) 
+    ship_date = models.DateField(blank=False)
     total_cost = models.IntegerField(blank=True)
     paid_date = models.DateField(blank=True)
     customer_id = models.ForeignKey('Customer', on_delete=models.CASCADE)
@@ -23,6 +26,7 @@ class Order(models.Model):
         return "{}".format(self.order_date)
 
 class OrderLine(models.Model):
+    """Order lines"""
     product_id = models.ForeignKey('Product', on_delete=models.CASCADE)
     quantity = models.IntegerField(blank=True)
     unit = models.CharField(max_length=30, blank=True)
@@ -31,6 +35,7 @@ class OrderLine(models.Model):
         return "{}".format(self.product_id)
 
 class Product(models.Model):
+    """Products"""
     name = models.CharField(max_length=255, blank=False)
     price = models.IntegerField(blank=False)
     stock = models.IntegerField(blank=True)
@@ -39,6 +44,7 @@ class Product(models.Model):
         return "{}".format(self.name)
 
 class Supplier(models.Model):
+    """Suppliers"""
     name = models.CharField(max_length=255, blank=False, unique=True)
     address1 = models.CharField(max_length=255, blank=True)
     address2 = models.CharField(max_length=255, blank=True)
