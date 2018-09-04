@@ -1,6 +1,6 @@
-/Lib
-/Scripts
-/Include
-/bin
+/Lib/*
+/Scripts/*
+/Include/*
+/bin/*
 
 
