@@ -23,9 +23,30 @@ class Order(models.Model):
         return "{}".format(self.order_date)
 
 class OrderLine(models.Model):
-    product = models.CharField(max_length=30, blank=True)
+    product_id = models.ForeignKey('Product', on_delete=models.CASCADE)
     quantity = models.IntegerField(blank=True)
     unit = models.CharField(max_length=30, blank=True)
     order_id = models.ForeignKey('Order', on_delete=models.CASCADE)
     def __str__(self):
         return "{}".format(self.product)
+
+class Product(models.Model):
+    name = models.CharField(max_length=255, blank=False)
+    price = models.IntegerField(blank=False)
+    stock = models.IntegerField(blank=True)
+    supplier_id = models.ForeignKey('Supplier', on_delete=models.CASCADE)
+    def __str__(self):
+        return "{}".format(self.name)
+
+class Supplier(models.Model):
+    name = models.CharField(max_length=255, blank=False, unique=True)
+    address1 = models.CharField(max_length=255, blank=True)
+    address2 = models.CharField(max_length=255, blank=True)
+    address3 = models.CharField(max_length=255, blank=True)
+    postnr = models.IntegerField(blank=True)
+    poststed = models.CharField(max_length=255, blank=True)
+    phone = models.CharField(max_length=30, blank=True)
+    email = models.EmailField(max_length=64, blank=True)
+    webpage = models.URLField(max_length=64, blank=True)
+    def __str__(self):
+        return "{}".format(self.name)
