@@ -14,10 +14,10 @@ class Customer(models.Model):
         return "{}".format(self.name)
 
 class Order(models.Model):
-    order_date = models.DateField(blank=False) 
+    order_date = models.DateField(blank=False)
     ship_date = models.DateField(blank=True) 
     total_cost = models.IntegerField(blank=True)
-    paid_date = models.DateField(blank=True) 
+    paid_date = models.DateField(blank=True)
     customer_id = models.ForeignKey('Customer', on_delete=models.CASCADE)
     def __str__(self):
         return "{}".format(self.order_date)

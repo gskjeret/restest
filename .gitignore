@@ -4,4 +4,4 @@
 /bin/*
 /tcl/*
 .vscode/*
-
+*pycache*

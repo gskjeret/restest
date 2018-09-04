@@ -18,7 +18,7 @@ class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
         model = Order
-        fields = ('id', 'order_date','ship_date','total_cost','paid_date')
+        fields = ('id', 'customer_id','order_date','ship_date','total_cost','paid_date')
         read_only_fields = ('id', 'id')
 
 class OrderLineSerializer(serializers.ModelSerializer):
@@ -27,7 +27,7 @@ class OrderLineSerializer(serializers.ModelSerializer):
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
         model = OrderLine
-        fields = ('id', 'product','quantity','unit')
+        fields = ('id', 'product_id','quantity','unit')
         read_only_fields = ('id', 'id')
 
 class ProductSerializer(serializers.ModelSerializer):
