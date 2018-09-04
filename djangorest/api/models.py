@@ -28,7 +28,7 @@ class OrderLine(models.Model):
     unit = models.CharField(max_length=30, blank=True)
     order_id = models.ForeignKey('Order', on_delete=models.CASCADE)
     def __str__(self):
-        return "{}".format(self.product)
+        return "{}".format(self.product_id)
 
 class Product(models.Model):
     name = models.CharField(max_length=255, blank=False)
