@@ -1,6 +1,7 @@
 from django.conf.urls import include, url
 
 from rest_framework.urlpatterns import format_suffix_patterns
+from rest_framework_swagger.views import get_swagger_view
 
 from .views import CustomerCreateView, OrderCreateView, OrderLineCreateView, ProductCreateView, SupplierCreateView
 from .views import CustomerDetailsView, OrderDetailsView, OrderLineDetailsView, ProductDetailsView, SupplierDetailsView
@@ -10,7 +11,7 @@ urlpatterns = {
     url(r'^customers/(?P<pk>[0-9]+)/$', CustomerDetailsView.as_view(), name="details"),
 
     url(r'^orders/$', OrderCreateView.as_view(), name="create"),
-    url(r'^orders/(?P<pk>[0-9]+)/$',OrderDetailsView.as_view(), name="details"),
+    url(r'^orders/(?P<pk>[0-9]+)/$', OrderDetailsView.as_view(), name="details"),
 
     url(r'^orderlines/$', OrderLineCreateView.as_view(), name="create"),
     url(r'^orderlines/(?P<pk>[0-9]+)/$', OrderLineDetailsView.as_view(), name="details"),
@@ -20,6 +21,9 @@ urlpatterns = {
 
     url(r'^suppliers/$', SupplierCreateView.as_view(), name="create"),
     url(r'^suppliers/(?P<pk>[0-9]+)/$', SupplierDetailsView.as_view(), name="details"),
+
+    url(r'^swagger$', get_swagger_view(title='Restest API')),
+    url(r'^swagger/$', get_swagger_view(title='Restest API'))
 }
 
 urlpatterns = format_suffix_patterns(urlpatterns)
