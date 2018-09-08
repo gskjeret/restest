@@ -1,0 +1,23 @@
+{% extends "home/common_template.html" %}
+{% load staticfiles %}
+
+	<!-- Home -->
+
+{% block content %}
+
+	<div class="home">
+		<div class="home_background" style="background-image: url({% static 'home/images/index_background.jpg' %});"></div>
+		<div class="home_content">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<h1 class="home_title">Logg inn for å starte</h1>
+						<div class="home_button trans_200"><a href="#">login</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
