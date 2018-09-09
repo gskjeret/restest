@@ -23,9 +23,6 @@ $(document).ready(function()
 	1. Vars and Inits
 
 	*/
-
- console.log("Loading custom.js")
-
 	var menu = $('.menu');
 	var header = $('.header');
 	var menuActive = false;

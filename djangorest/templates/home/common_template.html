@@ -11,6 +11,7 @@
 <link href="{% static 'home/plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="{% static 'home/styles/main_styles.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'home/styles/responsive.css' %}">
+<script src="{% static 'home/js/jquery-3.3.1.js' %}"></script>
 </head>
 <body>
 
@@ -36,7 +37,7 @@
 			</div>
 		</div>
 
-		<!-- Header Content -->
+		<!-- Header Content (main menu) -->
 		<div class="header_container">
 			<div class="container">
 				<div class="row">
@@ -49,11 +50,11 @@
 							</div>
 							<nav class="main_nav_contaner">
 								<ul class="main_nav">
-									<li class="active"><a href="index.html">Hjem</a></li>
-									<li><a href="kunder.html">Kunder</a></li>
-									<li><a href="ordre.html">Ordre</a></li>
-									<li><a href="produkter.html">Produkter</a></li>
-									<li><a href="leverandorer.html">Leverandører</a></li>
+									<li class="active"><a href="home">Hjem</a></li>
+									<li><a href="kunder">Kunder</a></li>
+									<li><a href="ordre">Ordre</a></li>
+									<li><a href="produkter">Produkter</a></li>
+									<li><a href="leverandorer">Leverandører</a></li>
 								</ul>
 							</nav>
 
@@ -65,46 +66,37 @@
 									<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
 								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</header>
+<p>Test der</p>
 
-	<!-- Menu -->
+
+	<!-- Menu (burger)-->
 
 	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
-		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+		<div class="menu_close_container">
+			<div class="menu_close">
+				<div></div>
+				<div></div>
+			</div>
+		</div>
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-				<li class="menu_mm"><a href="home.html">Hjem</a></li>
-				<li class="menu_mm"><a href="kunder.html">Kunder</a></li>
-				<li class="menu_mm"><a href="ordre.html">Ordre</a></li>
-				<li class="menu_mm"><a href="produkter.html">Produkter</a></li>
-				<li class="menu_mm"><a href="leverandorer.html">Leverandører</a></li>
+				<li class="menu_mm"><a href="home">Hjem</a></li>
+				<li class="menu_mm"><a href="kunder">Kunder</a></li>
+				<li class="menu_mm"><a href="ordre">Ordre</a></li>
+				<li class="menu_mm"><a href="produkter">Produkter</a></li>
+				<li class="menu_mm"><a href="leverandorer">Leverandører</a></li>
 			</ul>
 		</nav>
 	</div>
-
+<p>Test her</p>
 	<!-- Content will go here -->
 	{% block content %} {% endblock %}
-
-	<!-- Menu -->
-
-	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
-		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
-		<nav class="menu_nav">
-			<ul class="menu_mm">
-				<li class="menu_mm"><a href="index.html">Hjem</a></li>
-				<li class="menu_mm"><a href="kunder.html">Kunder</a></li>
-				<li class="menu_mm"><a href="ordre.html">Ordre</a></li>
-				<li class="menu_mm"><a href="produkter.html">Produkter</a></li>
-				<li class="menu_mm"><a href="leverandorer.html">Leverandører</a></li>
-			</ul>
-		</nav>
-	</div>
 
 		<div class="copyright">
 			<div class="container">
@@ -120,7 +112,7 @@ Layout basert på template <a href="http://demo.themewagon.com/preview/free-resp
 			</div>
 		</div>
 
-<script src="{% static 'home/js/jquery-3.2.1.min.js' %}"></script>
+
 <script src="{% static 'home/plugins/easing/easing.js' %}"></script>
 <script src="{% static 'home/js/custom.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
