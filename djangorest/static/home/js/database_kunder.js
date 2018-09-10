@@ -14,7 +14,7 @@ request.onload = function () {
             { data: "id"},
             // Denne vil lage en link til kunder/{kundeid}
             { title: "Navn", data: "name", "render": function ( data, type, row ) { return "<a href='kunder/" + row.id + "'>" + data+"</a>"; },},
-            { title: "Addresse", data: "address1"},
+            { title: "Adresse", data: "address1"},
             { visible: false, data: "address2"},
             { visible: false, data: "address3"},
             { visible: false, title: "", data: "postnr"},
