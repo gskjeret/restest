@@ -1,22 +1,20 @@
 {% extends "home/common_template.html" %}
 {% load staticfiles %}
 
-
 {% block content %}
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
 
-	<div class="home">
-		<div class="db_content">
-
-						<h1 class="home_title">Kunder</h1>
-<div id ="kundeliste">
-<table id="kundeliste_table" class="display" width=90%"></table>
-</div>
-
+<div class="home">
+	<div class="db_content">
+		<h1 class="home_title">Kunder</h1>
+		<div id ="kundeliste">
+			<table id="kundeliste_table" class="display" width="100%"></table>
 		</div>
+		<button type="button"><a href="http://127.0.0.1:8000/home/kunder/0/">Opprett kunde</a></button> 
 	</div>
+</div>
 
 
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>

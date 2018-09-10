@@ -1,6 +1,7 @@
 from django.conf.urls import url
 
 from .views import home, kunder, ordre, produkter, leverandorer
+from .views import kunde_detalj
 
 urlpatterns = [
     url(r'home$', home),
@@ -8,4 +9,5 @@ urlpatterns = [
     url(r'ordre$', ordre),
     url(r'produkter$', produkter),
     url(r'leverandorer$', leverandorer),
+    url(r'kunder/(?P<kid>\d+)/$', kunde_detalj, name="kunde_detalj"),
 ]

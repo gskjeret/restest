@@ -1,0 +1,26 @@
+{% extends "home/common_template.html" %}
+{% load staticfiles %}
+
+	<!-- Viser (for redigering) kunde med kundeid gitt av URL -->
+	<!-- Hvis kundeid er 0, blank form for å opprette ny kunde -->
+
+{% block content %}
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+<script type="text/javascript" src="//code.cloudcms.com/alpaca/1.5.24/bootstrap/alpaca.min.js"></script>
+<link type="text/css" href="//code.cloudcms.com/alpaca/1.5.24/bootstrap/alpaca.min.css" rel="stylesheet" />
+ 
+	<div class="home">
+		<div class="db_content">
+            <h1 class="home_title">Kundedetaljer {{ kundeid }}</h1>
+            <div id="form"></div>
+		</div>
+	</div>
+
+<script src="{% static 'home/js/database_kunde_detalj.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        last_kunde("{{ kundeid }}");
+    });
+</script>
+{% endblock %}

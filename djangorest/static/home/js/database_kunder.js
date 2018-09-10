@@ -11,20 +11,20 @@ request.onload = function () {
     $('#kundeliste_table').DataTable( {
         data: JSONdata,
         columns: [
-                     { data: "id"},
-                     { title: "Navn", data: "name"},
-                     { title: "Addresse", data: "address1"},
-                     { visible: false, data: "address2"},
-                     { visible: false, data: "address3"},
-                     { visible: false, title: "", data: "postnr"},
-                     { title: "Poststed", data: "poststed"},
-                     { title: "Tlf.", data: "phone"},
-                     { title: "Email", data: "email"},
-                     { title: "Web", data: "webpage"},
+            { data: "id"},
+            // Denne vil lage en link til kunder/{kundeid}
+            { title: "Navn", data: "name", "render": function ( data, type, row ) { return "<a href='kunder/" + row.id + "'>" + data+"</a>"; },},
+            { title: "Addresse", data: "address1"},
+            { visible: false, data: "address2"},
+            { visible: false, data: "address3"},
+            { visible: false, title: "", data: "postnr"},
+            { title: "Poststed", data: "poststed"},
+            { title: "Tlf.", data: "phone"},
+            { title: "Email", data: "email"},
+            { title: "Web", data: "webpage"},
         ]
     } );
 };
-
 
 // Send request
 request.send();

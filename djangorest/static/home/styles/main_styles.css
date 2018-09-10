@@ -2085,6 +2085,8 @@ section
 {
 	width: 100%;
 	background: #1a1a1a;
+	position: relative;
+	bottom: 200px;
 }
 .copyright_content
 {
@@ -2095,7 +2097,7 @@ section
 {
 	font-size: 12px;
 	font-weight: 500;
-	color: rgba(255,255,255,0.3);
+	color: rgba(33,33,33,0.3);
 }
 .footer_phone,
 .footer_social
@@ -2155,10 +2157,15 @@ section
 	color: rgba(255,255,255,1);
 }
 
+
+/*********************************
+XX. Ting vi lager selv
+*********************************/
+
 .db_content
 {
 	position: absolute;
 	left: 5%;
 	top: 20%;
-	width: 100%;
+	width: 90%;
 }
