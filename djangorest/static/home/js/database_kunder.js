@@ -12,15 +12,15 @@ request.onload = function () {
         data: JSONdata,
         columns: [
                      { data: "id"},
-                     { data: "name"},
-                     { data: "address1"},
-                     { data: "address2"},
-                     { data: "address3"},
-                     { data: "postnr"},
-                     { data: "poststed"},
-                     { data: "phone"},
-                     { data: "email"},
-                     { data: "webpage"},
+                     { title: "Navn", data: "name"},
+                     { title: "Addresse", data: "address1"},
+                     { visible: false, data: "address2"},
+                     { visible: false, data: "address3"},
+                     { visible: false, title: "", data: "postnr"},
+                     { title: "Poststed", data: "poststed"},
+                     { title: "Tlf.", data: "phone"},
+                     { title: "Email", data: "email"},
+                     { title: "Web", data: "webpage"},
         ]
     } );
 };
