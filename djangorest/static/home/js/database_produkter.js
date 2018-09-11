@@ -11,15 +11,14 @@ request.onload = function () {
     $('#produktliste_table').DataTable( {
         data: JSONdata,
         columns: [
-                     { title: "id", data: "id"},
-                     { title: "Navn", data: "name"},
-                     { title: "Pris", data: "price"},
-                     { title: "Lager", data: "stock"},
-                     { title: "Lev.id", data: "supplier_id"},
+             { title: "id", data: "id"},
+             { title: "Navn", data: "name", "render": function ( data, type, row ) { return "<a href='produkter/" + row.id + "'>" + data+"</a>"; },},
+             { title: "Pris", data: "price"},
+             { title: "Lager", data: "stock"},
+             { title: "Lev.id", data: "supplier_id"},
         ]
     } );
 };
-
 
 // Send request
 request.send();

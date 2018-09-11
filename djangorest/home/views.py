@@ -17,3 +17,6 @@ def leverandorer(request):
 
 def kunde_detalj(request, kid):
     return render(request, "home/kunde_detalj.html", {'kundeid': kid})
+
+def produkt_detalj(request, pid):
+    return render(request, "home/produkt_detalj.html", {'produktid': pid})

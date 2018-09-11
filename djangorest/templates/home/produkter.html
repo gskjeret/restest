@@ -1,20 +1,17 @@
 {% extends "home/common_template.html" %}
 {% load staticfiles %}
 
-
 {% block content %}
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
-
 	<div class="home">
 		<div class="db_content">
-
-						<h1 class="home_title">Produkter</h1>
-<div id ="produktliste">
-<table id="produktliste_table" class="display" width=90%"></table>
-</div>
-
+			<h1 class="home_title">Produkter</h1>
+		<div id ="produktliste">
+			<table id="produktliste_table" class="display" width=90%"></table>
+			</div>
+				<a href="http://127.0.0.1:8000/home/produkter/0/"><button type="button">Opprett produkt</button></a>
 		</div>
 	</div>
 
