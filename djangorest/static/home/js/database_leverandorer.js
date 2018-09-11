@@ -12,6 +12,7 @@ request.onload = function () {
         data: JSONdata,
         columns: [
             { data: "id"},
+            { title: "Navn", data: "name", "render": function ( data, type, row ) { return "<a href='leverandorer/" + row.id + "'>" + data +"</a>"; },},
             { title: "Navn", data: "name"},
             { visible: false, title: "Addresse", data: "address1"},
             { visible: false, title: "", data: "address2"},
