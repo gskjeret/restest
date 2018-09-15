@@ -8,15 +8,19 @@ request.onload = function () {
   // Begin accessing JSON data here
   var JSONdata = JSON.parse(this.response);
 
+  console.log(JSONdata);
+
     $('#ordreliste_table').DataTable( {
         data: JSONdata,
         columns: [
-                     { data: "id"},
-                     { title: "KundeID", data: "customer_id"},
-                     { title: "Best.dato", data: "order_date"},
-                     { title: "Sendt dato", data: "ship_date"},
-                     { title: "Totalsum", data: "total_cost"},
-                     { title: "Bet.dato", data: "paid_date"},
+                     { data: "ordre_id"},
+                     { title: "KundeID", data: "kunde"},
+                     { title: "Best.dato", data: "ordre_dato"},
+                     { title: "Status", data: "status"},
+                     { title: "Sum u mva", data: "belop_u_mva"},
+                     { title: "Mva", data: "mva_belop"},
+                     { title: "Totalsum", data: "totalbelop"},
+                     { title: "Notat", data: "notat"},
         ]
     } );
 };

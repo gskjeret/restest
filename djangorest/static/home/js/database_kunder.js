@@ -11,17 +11,22 @@ request.onload = function () {
     $('#kundeliste_table').DataTable( {
         data: JSONdata,
         columns: [
-            { data: "id"},
-            // Denne vil lage en link til kunder/{kundeid}
-            { title: "Navn", data: "name", "render": function ( data, type, row ) { return "<a href='kunder/" + row.id + "'>" + data+"</a>"; },},
-            { title: "Adresse", data: "address1"},
-            { visible: false, data: "address2"},
-            { visible: false, data: "address3"},
-            { visible: false, title: "", data: "postnr"},
-            { title: "Poststed", data: "poststed"},
-            { title: "Tlf.", data: "phone"},
-            { title: "Email", data: "email"},
-            { title: "Web", data: "webpage"},
+            { data: "kunde_id"},
+            // Denne vil lage en link til kunder/{kundeid}/
+            { title: "Navn", data: "kundenavn", "render": function ( data, type, row ) { return "<a href='kunder/" + row.kunde_id + "'>" + data+"</a>"; },},
+            { title: "Kode", data: "adresse"}, 
+            { title: "Orgnr", data: "telefonnr"}, 
+            { visible: false, data: "kontaktperson"}, 
+            { visible: false, data: "telefonnr1"}, 
+            { visible: false, data: "kontaktperson2"}, 
+            { visible: false, data: "telefonnr2"},
+            { title: "Email", data: "emailadresse"},
+            { title: "Merknad", data: "merknader"},  
+            { title: "Kundetype", data: "kundetype"},  
+            { visible: false, data: "reg_dato"},
+            { visible: false, data: "reg_bruker"},
+            { visible: false, data: "endret_dato"},
+            { visible: false, data: "endret_bruker"},
         ]
     } );
 };

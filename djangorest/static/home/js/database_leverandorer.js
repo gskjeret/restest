@@ -8,20 +8,29 @@ request.onload = function () {
   // Begin accessing JSON data here
   var JSONdata = JSON.parse(this.response);
 
+  console.log(JSONdata)
+
     $('#leverandorliste_table').DataTable( {
         data: JSONdata,
         columns: [
-            { data: "id"},
-            { title: "Navn", data: "name", "render": function ( data, type, row ) { return "<a href='leverandorer/" + row.id + "'>" + data +"</a>"; },},
-            { title: "Navn", data: "name"},
-            { visible: false, title: "Addresse", data: "address1"},
-            { visible: false, title: "", data: "address2"},
-            { visible: false, title: "", data: "address3"},
-            { visible: false, title: "", data: "postnr"},
-            { title: "Poststed", data: "poststed"},
-            { title: "Tlf.", data: "phone"},
-            { title: "Email", data: "email"},
-            { title: "Web", data: "webpage"},
+            { data: "leverandor_id"},
+            // Denne vil lage en link til leverandorer/{leverandor_id}/
+            { title: "Navn", data: "leverandornavn", "render": function ( data, type, row ) { return "<a href='leverandorer/" + row.leverandor_id + "'>" + data+"</a>"; },},
+            { title: "Kode", data: "leverandorkode"}, 
+            { title: "Orgnr", data: "organisasjonsnr"}, 
+            { visible: false, data: "besoksadresse"}, 
+            { visible: false, data: "postadresse"}, 
+            { visible: false, data: "kontaktperson1"}, 
+            { visible: false, data: "telefonnr1"},
+            { visible: false, data: "kontaktperson2"},
+            { visible: false, data: "telefonnr2"},
+            { title: "Email", data: "emailadresse"},
+            { title: "Webside", data: "hjemmeside"},
+            { title: "Merknad", data: "merknader"},  
+            { visible: false, data: "reg_dato"},
+            { visible: false, data: "reg_bruker"},
+            { visible: false, data: "endret_dato"},
+            { visible: false, data: "endret_bruker"},
 ]
     } );
 };

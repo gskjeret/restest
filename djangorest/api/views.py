@@ -1,61 +1,115 @@
 from rest_framework import generics
 
-from .models import Customer, Order, OrderLine, Product, Supplier
-from .serializers import CustomerSerializer, OrderSerializer, OrderLineSerializer, ProductSerializer, SupplierSerializer
+from .models import Varepris, Vare, Ordrestatus, Ordrelinje, Ordre, Leverandor, Kunde, Kundetype, Faktura, Fakturalinje, DebugMessages
+from .serializers import VareprisSerializer, VareSerializer, OrdrestatusSerializer, OrdrelinjeSerializer, OrdreSerializer, LeverandorSerializer, KundeSerializer, KundetypeSerializer, FakturaSerializer, FakturalinjeSerializer, DebugMessagesSerializer
 
-
-class CustomerCreateView(generics.ListCreateAPIView):
-    queryset = Customer.objects.all()
-    serializer_class = CustomerSerializer
-
+class VareprisCreateView(generics.ListCreateAPIView):
+    queryset = Varepris.objects.all()
+    serializer_class = VareprisSerializer
     def perform_create(self, serializer):
         serializer.save()
 
-class OrderCreateView(generics.ListCreateAPIView):
-    queryset = Order.objects.all()
-    serializer_class = OrderSerializer
-
+class VareCreateView(generics.ListCreateAPIView):
+    queryset = Vare.objects.all()
+    serializer_class = VareSerializer
     def perform_create(self, serializer):
         serializer.save()
 
-class OrderLineCreateView(generics.ListCreateAPIView):
-    queryset = OrderLine.objects.all()
-    serializer_class = OrderLineSerializer
-
+class OrdrestatusCreateView(generics.ListCreateAPIView):
+    queryset = Ordrestatus.objects.all()
+    serializer_class = OrdrestatusSerializer
     def perform_create(self, serializer):
         serializer.save()
 
-class ProductCreateView(generics.ListCreateAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-
+class OrdreCreateView(generics.ListCreateAPIView):
+    queryset = Ordre.objects.all()
+    serializer_class = OrdreSerializer
     def perform_create(self, serializer):
         serializer.save()
 
-class SupplierCreateView(generics.ListCreateAPIView):
-    queryset = Supplier.objects.all()
-    serializer_class = SupplierSerializer
-
+class OrdrelinjeCreateView(generics.ListCreateAPIView):
+    queryset = Ordrelinje.objects.all()
+    serializer_class = OrdrelinjeSerializer
     def perform_create(self, serializer):
         serializer.save()
 
-class CustomerDetailsView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Customer.objects.all()
-    serializer_class = CustomerSerializer
-   
-class OrderDetailsView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Order.objects.all()
-    serializer_class = OrderSerializer
-   
-class OrderLineDetailsView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = OrderLine.objects.all()
-    serializer_class = OrderLineSerializer
-   
-class ProductDetailsView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
-   
-class SupplierDetailsView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Supplier.objects.all()
-    serializer_class = SupplierSerializer
-   
+class LeverandorCreateView(generics.ListCreateAPIView):
+    queryset = Leverandor.objects.all()
+    serializer_class = LeverandorSerializer
+    def perform_create(self, serializer):
+        serializer.save()
+
+class KundeCreateView(generics.ListCreateAPIView):
+    queryset = Kunde.objects.all()
+    serializer_class = KundeSerializer
+    def perform_create(self, serializer):
+        serializer.save()
+
+class KundetypeCreateView(generics.ListCreateAPIView):
+    queryset = Kundetype.objects.all()
+    serializer_class = KundetypeSerializer
+    def perform_create(self, serializer):
+        serializer.save()
+
+class FakturalinjeCreateView(generics.ListCreateAPIView):
+    queryset = Fakturalinje.objects.all()
+    serializer_class = FakturalinjeSerializer
+    def perform_create(self, serializer):
+        serializer.save()
+
+class FakturaCreateView(generics.ListCreateAPIView):
+    queryset = Faktura.objects.all()
+    serializer_class = FakturaSerializer
+    def perform_create(self, serializer):
+        serializer.save()
+
+class DebugMessagesCreateView(generics.ListCreateAPIView):
+    queryset = DebugMessages.objects.all()
+    serializer_class = DebugMessagesSerializer
+    def perform_create(self, serializer):
+        serializer.save()
+
+
+class VareprisDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Varepris.objects.all()
+    serializer_class = VareprisSerializer
+
+class VareDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Vare.objects.all()
+    serializer_class = VareSerializer
+
+class OrdrestatusDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Ordrestatus.objects.all()
+    serializer_class = OrdrestatusSerializer
+
+class OrdreDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Ordre.objects.all()
+    serializer_class = OrdreSerializer
+
+class OrdrelinjeDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Ordrelinje.objects.all()
+    serializer_class = OrdrelinjeSerializer
+
+class LeverandorDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Leverandor.objects.all()
+    serializer_class = LeverandorSerializer
+
+class KundeDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Kunde.objects.all()
+    serializer_class = KundeSerializer
+
+class KundetypeDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Kundetype.objects.all()
+    serializer_class = KundetypeSerializer
+
+class FakturalinjeDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Fakturalinje.objects.all()
+    serializer_class = FakturalinjeSerializer
+
+class FakturaDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Faktura.objects.all()
+    serializer_class = FakturaSerializer
+
+class DebugMessagesDetailsView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = DebugMessages.objects.all()
+    serializer_class = DebugMessagesSerializer
