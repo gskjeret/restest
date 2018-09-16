@@ -1,3 +1,10 @@
+// Set menu choice
+$(document).ready(function()
+{
+    $('.main_nav li').removeClass("active");
+    $('#nav_ordre').addClass("active");
+});
+
 // Create a request variable and assign a new XMLHttpRequest object to it.
 var request = new XMLHttpRequest();
 

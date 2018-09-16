@@ -502,17 +502,12 @@ section
 .main_nav li.active a
 {
 	color: rgba(0,0,0,0.8);
+	background: #eeeeee;
+	padding: 2px;
 }
 .header_content_right
 {
 	width: 100px;
-}
-.header_search
-{
-	display: inline-block;
-	width: 18px;
-	height: 42px;
-	vertical-align: middle;
 }
 
 .user
