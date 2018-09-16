@@ -5,6 +5,7 @@ var glid;
 
 function last_leverandor(lid) {
     glid = lid;
+    console.log(lid);
     if (lid > 0) {
         // Open a new connection, using the GET request on the URL endpoint
         request.open('GET', 'http://127.0.0.1:8000/suppliers/' + lid + '/', true);
@@ -35,52 +36,62 @@ function populate_form(p_title) {
         "data": JSONdata,
         "schema": {
             "title": p_title,
-            "description": "Leverandørdetaljer",
+            "description": "Kundedetaljer",
             "type": "object",
             "properties": {
-                "name": {
+                "leverandornavn": {
                     "type": "string",
                     "title": "Navn",
                     "required": true
                 },
-                "address1": {
+                "leverandorkode": {
                     "type": "string",
-                    "title": "Adresselinje 1"
+                    "title": "Leverandørkode",
+                    "enum": ["A", "B", "C", "D", "E", "F"],
                 },
-                "address2": {
+                "organisasjonsnr": {
                     "type": "string",
-                    "title": "Adresselinje 2"
+                    "title": "Organisasjonsnummer"
                 },
-                "address3": {
+                "besoksadresse": {
                     "type": "string",
-                    "title": "Adresselinje 3"
+                    "title": "Besøksadresse"
                 },
-                "postnr": {
+                "postadresse": {
                     "type": "string",
-                    "title": "Postnr",
-                    "required": true,
-                    "minLength": 4,
-                    "maxLength": 4,
-                    "format": "9999"
+                    "title": "Postadresse"
                 },
-                "poststed": {
+                "kontaktperson1": {
                     "type": "string",
-                    "title": "Poststed",
+                    "title": "Kontaktperson"
                 },
-                "phone": {
+                "telefonnr1": {
                     "type": "string",
-                    "title": "Telefonnr",
+                    "title": "Telefonnr"
                 },
-                "email": {
+                "kontaktperson2": {
+                    "type": "string",
+                    "title": "Kontaktperson (sekundær)"
+                },
+                "telefonnr2": {
+                    "type": "string",
+                    "title": "Telefonnr (sekundært)"
+                },
+                "emailadresse": {
                     "type": "string",
                     "format": "email",
                     "title": "Kontakt-email",
                     "required": true
                 },
-                "webpage": {
+                "hjemmeside": {
                     "type": "string",
                     "format": "url",
                     "title": "Webadresse",
+                },
+                "merknader": {
+                    "type": "string",
+                    "format": "string",
+                    "title": "Merknader",
                 }
             }
         },

@@ -1,51 +1,102 @@
 """Import serializers from the REST framework"""
 from rest_framework import serializers
 
-from .models import Customer, Order, OrderLine, Product, Supplier
+from .models import Varepris, Vare, Ordrestatus, Ordrelinje, Ordre, Leverandor, Kunde, Kundetype, Faktura, Fakturalinje, DebugMessages
 
-class CustomerSerializer(serializers.ModelSerializer):
+class DebugMessagesSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
 
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
-        model = Customer
-        fields = ('id', 'name', 'address1', 'address2', 'address3', 'postnr',
-                  'poststed', 'phone', 'email', 'webpage')
-        read_only_fields = [('id')]
+        model = DebugMessages
+        fields = ('__all__')
+        read_only_fields = [('line_id ')]
 
-class OrderSerializer(serializers.ModelSerializer):
+class FakturaSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
 
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
-        model = Order
-        fields = ('id', 'customer_id', 'order_date', 'ship_date', 'total_cost', 'paid_date')
-        read_only_fields = [('id')]
+        model = Faktura
+        fields = ('__all__')
+        read_only_fields = [('faktura_id ')]
 
-class OrderLineSerializer(serializers.ModelSerializer):
+class FakturalinjeSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
 
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
-        model = OrderLine
-        fields = ('id', 'product_id', 'quantity', 'unit', 'order_id')
-        read_only_fields = [('id')]
+        model = Fakturalinje
+        fields = ('__all__')
+        read_only_fields = [('faktura_id')]
 
-class ProductSerializer(serializers.ModelSerializer):
+class KundeSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
 
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
-        model = Product
-        fields = ('id', 'name', 'price', 'stock', 'supplier_id')
-        read_only_fields = [('id')]
+        model = Kunde
+        fields = ('__all__')
+        read_only_fields = [('kunde_id ')]
 
-class SupplierSerializer(serializers.ModelSerializer):
+class KundetypeSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
 
     class Meta:
         """Meta class to map serializer's fields with the model fields."""
-        model = Supplier
-        fields = ('id', 'name', 'address1', 'address2', 'address3', 'postnr',
-                  'poststed', 'phone', 'email', 'webpage')
-        read_only_fields = [('id')]
+        model = Kundetype
+        fields = ('__all__')
+        read_only_fields = [('kundetype_kode')]
+
+class LeverandorSerializer(serializers.ModelSerializer):
+    """Serializer to map the Model instance into JSON format."""
+
+    class Meta:
+        """Meta class to map serializer's fields with the model fields."""
+        model = Leverandor
+        fields = ('__all__')
+        read_only_fields = [('leverandor_id ')]
+
+class OrdreSerializer(serializers.ModelSerializer):
+    """Serializer to map the Model instance into JSON format."""
+
+    class Meta:
+        """Meta class to map serializer's fields with the model fields."""
+        model = Ordre
+        fields = ('__all__')
+        read_only_fields = [('ordre_id')]
+
+class OrdrelinjeSerializer(serializers.ModelSerializer):
+    """Serializer to map the Model instance into JSON format."""
+
+    class Meta:
+        """Meta class to map serializer's fields with the model fields."""
+        model = Ordrelinje
+        fields = ('__all__')
+        read_only_fields = [('ordre_id ')]
+
+class OrdrestatusSerializer(serializers.ModelSerializer):
+    """Serializer to map the Model instance into JSON format."""
+
+    class Meta:
+        """Meta class to map serializer's fields with the model fields."""
+        model = Ordrestatus
+        fields = ('__all__')
+
+class VareSerializer(serializers.ModelSerializer):
+    """Serializer to map the Model instance into JSON format."""
+
+    class Meta:
+        """Meta class to map serializer's fields with the model fields."""
+        model = Vare
+        fields = ('__all__')
+        read_only_fields = [('produkt_id')]
+
+class VareprisSerializer(serializers.ModelSerializer):
+    """Serializer to map the Model instance into JSON format."""
+
+    class Meta:
+        """Meta class to map serializer's fields with the model fields."""
+        model = Varepris
+        fields = ('__all__')
+        read_only_fields = [('produkt_id')]

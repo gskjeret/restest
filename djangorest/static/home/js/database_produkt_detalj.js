@@ -4,6 +4,7 @@ var JSONdata;
 var gpid;
 
 function last_produkt(pid) {
+    console.log(pid);
     gpid = pid;
     if (pid > 0) {
         // Open a new connection, using the GET request on the URL endpoint
@@ -39,21 +40,35 @@ function populate_form(p_title) {
             "description": "Kundedetaljer",
             "type": "object",
             "properties": {
-                "name": {
+                "produktnavn": {
                     "type": "string",
                     "title": "Navn",
                     "required": true
                 },
-                "price": {
-                    "type": "integer",
-                    "title": "Pris"
+                "beskrivelse": {
+                    "type": "string",
+                    "title": "Beskrivelse",
+                    "required": true
                 },
-                "stock": {
+                "produktkode": {
+                    "type": "string",
+                    "title": "Kode",
+                    "required": true
+                },
+                "pris_u_mva": {
+                    "type": "number",
+                    "centsSeparator": ",",
+                    "prefix": "kr.",
+                    "suffix": "",
+                    "thousandsSeparator": ".",
+                    "title": "Pris (uten mva)"
+                },
+                "beholdning": {
                     "type": "integer",
                     "title": "På lager",
                     default: 0
                 },
-                "supplier_id": {
+                "leverandor": {
                     "type": "integer",
                     "title": "Leverandør"
                 },

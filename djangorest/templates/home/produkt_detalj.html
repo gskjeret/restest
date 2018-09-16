@@ -1,11 +1,12 @@
 {% extends "home/common_template.html" %}
 {% load staticfiles %}
 
-	<!-- Viser (for redigering) kunde med kundeid gitt av URL -->
-	<!-- Hvis kundeid er 0, blank form for å opprette ny kunde -->
+	<!-- Viser (for redigering) produkt med id gitt av URL -->
+	<!-- Hvis id er 0, vis blank form for å opprette ny -->
 
 {% block content %}
 
+<script src="{% static 'home/js/jquery.priceformat.js' %}"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
 <script type="text/javascript" src="//code.cloudcms.com/alpaca/1.5.24/bootstrap/alpaca.min.js"></script>
 <link type="text/css" href="//code.cloudcms.com/alpaca/1.5.24/bootstrap/alpaca.min.css" rel="stylesheet" />

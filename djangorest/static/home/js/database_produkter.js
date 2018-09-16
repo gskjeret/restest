@@ -11,11 +11,17 @@ request.onload = function () {
     $('#produktliste_table').DataTable( {
         data: JSONdata,
         columns: [
-             { title: "id", data: "id"},
-             { title: "Navn", data: "name", "render": function ( data, type, row ) { return "<a href='produkter/" + row.id + "'>" + data+"</a>"; },},
-             { title: "Pris", data: "price"},
-             { title: "Lager", data: "stock"},
-             { title: "Lev.id", data: "supplier_id"},
+             { visible: false, data: "produkt_id"},
+             { title: "Produktkode", data: "produktkode"},
+             { title: "Navn", data: "produktnavn", "render": function ( data, type, row ) { return "<a href='produkter/" + row.produkt_id + "'>" + data+"</a>"; },},
+             { title: "Beskrivelse", data: "beskrivelse"},
+             { title: "Pris", data: "pris_u_mva"},
+             { title: "På lager", data: "beholdning"},
+             { title: "Leverandør", data: "leverandor"},
+             { visible: false, data: "reg_dato"},
+             { visible: false, data: "reg_bruker"},
+             { visible: false, data: "endret_dato"},
+             { visible: false, data: "endret_bruker"},
         ]
     } );
 };

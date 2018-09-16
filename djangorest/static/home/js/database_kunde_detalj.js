@@ -70,49 +70,49 @@ function populate_form(p_title) {
             "description": "Kundedetaljer",
             "type": "object",
             "properties": {
-                "name": {
+                "kundenavn": {
                     "type": "string",
                     "title": "Navn",
                     "required": true
                 },
-                "address1": {
+                "kundetype": {
                     "type": "string",
-                    "title": "Adresselinje 1"
+                    "title": "Kundetype",
                 },
-                "address2": {
+                "adresse": {
                     "type": "string",
-                    "title": "Adresselinje 2"
+                    "title": "Adresse"
                 },
-                "address3": {
+                "telefonnr": {
                     "type": "string",
-                    "title": "Adresselinje 3"
+                    "title": "Telefonnr"
                 },
-                "postnr": {
+                "kontaktperson": {
                     "type": "string",
-                    "title": "Postnr",
-                    "required": true,
-                    "minLength": 4,
-                    "maxLength": 4,
-                    "format": "9999"
+                    "title": "Kontaktperson"
                 },
-                "poststed": {
+                "telefonnr1": {
                     "type": "string",
-                    "title": "Poststed",
+                    "title": "Telefonnr 1"
                 },
-                "phone": {
+                "kontaktperson2": {
                     "type": "string",
-                    "title": "Telefonnr",
+                    "title": "Kontaktperson 2"
                 },
-                "email": {
+                "telefonnr2": {
+                    "type": "string",
+                    "title": "Telefonnr 2"
+                },
+                "emailadresse": {
                     "type": "string",
                     "format": "email",
                     "title": "Kontakt-email",
                     "required": true
                 },
-                "webpage": {
+                "merknader": {
                     "type": "string",
-                    "format": "url",
-                    "title": "Webadresse",
+                    "format": "string",
+                    "title": "Merknader",
                 }
             }
         },
