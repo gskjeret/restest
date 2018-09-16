@@ -1,10 +1,17 @@
 from django.conf.urls import url
+from django.contrib.auth.views import LoginView, LogoutView
 
 from .views import home, kunder, ordre, produkter, leverandorer
 from .views import kunde_detalj, produkt_detalj, leverandor_detalj
 
 urlpatterns = [
-    url(r'home$', home),
+    url(r'home$', home, name="home"),
+    url(r'login$', 
+        LoginView.as_view(template_name="home/login_form.html"),
+        name="home_login"),
+    url(r'logout$', 
+        LogoutView.as_view(),
+        name="home_logout"),
     url(r'kunder$', kunder),
     url(r'ordre$', ordre),
     url(r'produkter$', produkter),

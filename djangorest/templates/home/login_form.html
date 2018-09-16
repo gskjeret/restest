@@ -1,0 +1,28 @@
+{% extends "home/common_template.html" %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="home">
+    <div class="home_background" style="background-image: url({% static 'home/images/2017-03-07 08.41.45.jpg' %});"></div>
+    <div class="home_content">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <h1 class="home_title">Logg inn for å starte</h1>
+                    <form role="form"
+                    action="{% url 'home_login' %}"
+                    method="post">
+                    {% csrf_token %}
+          
+                    {{ form }}
+                    
+                    <div><button type="submit" class="home_button btn-success trans_200">Logg inn</button></div>
+              </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
