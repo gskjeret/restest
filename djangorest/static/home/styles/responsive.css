@@ -63,24 +63,7 @@
 
 @media only screen and (max-width: 1199px)
 {
-	.search_form
-	{
-		width: 152px;
-		left: 134px;
-	}
-	.courses_background
-	{
-		top: 304px;
-		height: calc(100% - 304px);
-	}
-	.blog_title_container
-	{
-		width: 92%;
-	}
-	.footer_col
-	{
-		padding-right: 30px;
-	}
+
 }
 
 /************
@@ -117,19 +100,6 @@
 	{
 		display: inline-block;
 	}
-	.top_bar_social
-	{
-		margin-left: 33px;
-	}
-	.courses_background
-	{
-		top: 0;
-		height: 100%;
-	}
-	.course_col:not(:last-child)
-	{
-		margin-bottom: 30px;
-	}
 	.timer_container
 	{
 		margin-top: 57px;
@@ -145,49 +115,7 @@
 		transform: none;
 		margin-top: 50px;
 	}
-	.event_col:not(:last-child)
-	{
-		margin-bottom: 40px;
-	}
-	.blog_right
-	{
-		height: auto;
-		margin-top: 40px;
-	}
-	.blog_image
-	{
-	    position: relative;
-	    top: auto;
-	    left: auto;
-	    width: 100%;
-	    height: 400px;
-	}
-	.footer_logo
-	{
-		margin-top: 0;
-		margin-bottom: 40px !important;
-	}
-	.footer_col
-	{
-		padding-right: 15px;
-	}
-	.footer_col:not(:last-child)
-	{
-		margin-bottom: 40px;
-	}
-	.footer_col:nth-child(2) > div
-	{
-		left: auto;
-	}
-	.footer_col:last-child > div
-	{
-		display: block;
-		float: none;
-	}
-	.footer_phone
-	{
-		margin-right: 42px;
-	}
+
 	.copyright_content
 	{
 		height: auto;
@@ -197,15 +125,6 @@
 	.cr_right
 	{
 		margin-top: 10px;
-	}
-	.footer_phone,
-	.footer_social
-	{
-		display: block;
-	}
-	.footer_social
-	{
-		margin-top: 8px;
 	}
 }
 
@@ -254,18 +173,7 @@
 	{
 		height: 60px;
 	}
-	.blog_category_col:not(:nth-last-child(-n+3))
-	{
-		margin-bottom: 0px;
-	}
-	.blog_category_col:not(:last-child)
-	{
-		margin-bottom: 30px;
-	}
-	.blog_image
-	{
-		height: 330px;
-	}
+
 }
 
 /************
@@ -343,39 +251,6 @@
 		font-size: 10px;
 		font-size: 10px;
 	}
-	.course_body,
-	.course_footer
-	{
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-	.course_title a
-	{
-		font-size: 16px;
-	}
-	.course_info ul li a
-	{
-		font-size: 13px;
-	}
-	.instructor_image_container
-	{
-		width: 120px;
-		height: 120px;
-		border: solid 8px #ffffff;
-	}
-	.instructor_image
-	{
-		top: -8px;
-		left: -8px;
-		width: 120px;
-		height: 120px;
-	}
-	.register_form_container
-	{
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-	.register_timer_title,
 	.timer_num
 	{
 		font-size: 24px;
@@ -388,47 +263,6 @@
 	.timer_list li:not(:last-child)
 	{
 		margin-right: 12px;
-	}
-	.event_date
-	{
-		width: 60px;
-		height: 60px;
-	}
-	.event_day
-	{
-		font-size: 24px;
-	}
-	.event_month
-	{
-		font-size: 9px;
-		margin-top: 8px;
-	}
-	.event_body
-	{
-		padding-left: 15px;
-		padding-right: 15px;
-	}
-	.event_title a
-	{
-		font-size: 16px;
-	}
-	.blog_title
-	{
-		font-size: 24px;
-	}
-	.blog_title_container
-	{
-		top: calc(100% - 105px);
-		padding-left: 20px;
-		padding-right: 15px;
-	}
-	.blog_right_title a
-	{
-		font-size: 24px;
-	}
-	.blog_right_text p
-	{
-		font-size: 13px;
 	}
 }
 
