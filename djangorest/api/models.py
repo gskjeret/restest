@@ -36,7 +36,8 @@ class Faktura(models.Model):
 
 
 class Fakturalinje(models.Model):
-    faktura = models.ForeignKey(Faktura, models.DO_NOTHING, primary_key=True)
+    fakturalinje_id = models.AutoField(primary_key=True, serialize=False)
+    faktura = models.ForeignKey(Faktura, models.DO_NOTHING)
     linjenr = models.PositiveIntegerField()
     produkt = models.ForeignKey('Vare', models.DO_NOTHING)
     antall = models.PositiveIntegerField()
@@ -120,9 +121,9 @@ class Ordre(models.Model):
 
 
 class Ordrelinje(models.Model):
-    ordre = models.ForeignKey(Ordre, models.DO_NOTHING, primary_key=True)
+    ordrelinje_id = models.AutoField(primary_key=True)
+    ordre = models.ForeignKey(Ordre, models.DO_NOTHING)
     linjenr = models.PositiveIntegerField()
-    produkt = models.ForeignKey('Vare', models.DO_NOTHING)
     antall = models.PositiveIntegerField()
     rabatt_pros = models.PositiveIntegerField()
     belop_linje_u_mva = models.DecimalField(max_digits=7, decimal_places=2)
@@ -131,11 +132,11 @@ class Ordrelinje(models.Model):
     reg_bruker = models.CharField(max_length=20, blank=True, null=True)
     endret_dato = models.DateTimeField(blank=True, null=True)
     endret_bruker = models.CharField(max_length=20, blank=True, null=True)
+    produkt = models.ForeignKey('Vare', models.DO_NOTHING)
 
     class Meta:
         db_table = 'ordrelinje'
         unique_together = (('ordre', 'linjenr'),)
-
 
 class Ordrestatus(models.Model):
     statuskode = models.CharField(primary_key=True, max_length=10)
@@ -162,7 +163,8 @@ class Vare(models.Model):
         db_table = 'vare'
 
 class Varepris(models.Model):
-    produkt = models.ForeignKey(Vare, models.DO_NOTHING, primary_key=True)
+    varepris_id = models.AutoField(primary_key=True)
+    produkt = models.ForeignKey(Vare, models.DO_NOTHING)
     pris_fra_dato = models.DateField()
     pris_u_mva = models.DecimalField(max_digits=7, decimal_places=2)
     reg_dato = models.DateTimeField(blank=True, null=True)
