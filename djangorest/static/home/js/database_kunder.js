@@ -5,6 +5,30 @@ $(document).ready(function()
     $('#nav_kunder').addClass("active");
 });
 
+
+function format ( d ) {
+    console.log(d.kunde_id)
+ 
+    var extra_info = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+    var k1 = d.kontaktperson + ", tlf. " + d.telefonnr1;
+    var k2 = d.kontaktperson2 + ", tlf. " + d.telefonnr2;
+    
+    if (d.kontaktperson || d.telefonnr1) extra_info +=
+        '<tr>'+
+        '<td>Kontaktperson:</td>'+
+        '<td>'+ k1 +'</td>'+
+    '</tr>';
+    if (d.kontaktperson2 || d.telefonnr2) extra_info +=
+        '<tr>'+
+        '<td>Kontaktperson:</td>'+
+        '<td>'+ k2 +'</td>'+
+    '</tr>';
+
+extra_info += '</table>';
+    return extra_info;
+    
+}
+
 // Create a request variable and assign a new XMLHttpRequest object to it.
 var request = new XMLHttpRequest();
 
@@ -15,9 +39,13 @@ request.onload = function () {
   // Begin accessing JSON data here
   var JSONdata = JSON.parse(this.response);
 
-    $('#kundeliste_table').DataTable( {
+    var table = $('#kundeliste_table').DataTable( {
         data: JSONdata,
         columns: [
+            {   "className":      'details-control',
+                "orderable":      false,
+                "data":           null,
+                "defaultContent": '' },
             { data: "kunde_id"},
             // Denne vil lage en link til kunder/{kundeid}/
             { title: "Navn", data: "kundenavn", "render": function ( data, type, row ) { return "<a href='kunder/" + row.kunde_id + "'>" + data+"</a>"; },},
@@ -36,6 +64,22 @@ request.onload = function () {
             { visible: false, data: "endret_bruker"},
         ]
     } );
+
+    // Add event listener for showing master-details
+    $('#kundeliste_table tbody').on('click', 'td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = table.row( tr );
+        if ( row.child.isShown() ) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            // Open this row
+            row.child( format(row.data()) ).show();
+            tr.addClass('shown');
+        }
+    });    
 };
 
 // Send request
