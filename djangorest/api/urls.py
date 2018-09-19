@@ -5,6 +5,7 @@ from rest_framework_swagger.views import get_swagger_view
 
 from .views import VareprisCreateView, VareCreateView, OrdrestatusCreateView, OrdrelinjeCreateView, OrdreCreateView, LeverandorCreateView, KundeCreateView, KundetypeCreateView, FakturaCreateView, FakturalinjeCreateView, DebugMessagesCreateView
 from .views import VareprisDetailsView, VareDetailsView, OrdrestatusDetailsView, OrdrelinjeDetailsView, OrdreDetailsView, LeverandorDetailsView, KundeDetailsView, KundetypeDetailsView, FakturaDetailsView, FakturalinjeDetailsView, DebugMessagesDetailsView
+from .views import OrdrelinjeFilterView
 
 urlpatterns = {
     url(r'^customers/$', KundeCreateView.as_view(), name="create"),
@@ -15,6 +16,7 @@ urlpatterns = {
 
     url(r'^orderlines/$', OrdrelinjeCreateView.as_view(), name="create"),
     url(r'^orderlines/(?P<pk>[0-9]+)/$', OrdrelinjeDetailsView.as_view(), name="details"),
+    url(r'^v_ordrelinje/$', OrdrelinjeFilterView.as_view(), name="v_orderlines"),
 
     url(r'^products/$', VareCreateView.as_view(), name="create"),
     url(r'^products/(?P<pk>[0-9]+)/$', VareDetailsView.as_view(), name="details"),

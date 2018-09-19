@@ -175,3 +175,21 @@ class Varepris(models.Model):
     class Meta:
         db_table = 'varepris'
         unique_together = (('produkt', 'pris_fra_dato'),)
+
+# Views
+
+class v_ordrelinje(models.Model):
+    ordrelinje_id = models.AutoField(primary_key=True)
+    ordre = models.ForeignKey(Ordre, models.DO_NOTHING)
+    produkt = models.ForeignKey(Vare, models.DO_NOTHING)
+    linjenr = models.PositiveIntegerField()
+    antall = models.PositiveIntegerField()
+    rabatt_pros = models.PositiveIntegerField()
+    belop_linje_u_mva = models.DecimalField(max_digits=7, decimal_places=2)
+    kommentar = models.CharField(max_length=200, blank=True, null=True)
+    produktkode = models.CharField(max_length=12, blank=True, null=True)
+    produktnavn = models.CharField(max_length=80)
+
+    class Meta:
+        managed = False
+        db_table = 'v_ordrelinje'

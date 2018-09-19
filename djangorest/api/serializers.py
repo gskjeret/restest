@@ -2,6 +2,7 @@
 from rest_framework import serializers
 
 from .models import Varepris, Vare, Ordrestatus, Ordrelinje, Ordre, Leverandor, Kunde, Kundetype, Faktura, Fakturalinje, DebugMessages
+from .models import v_ordrelinje
 
 class DebugMessagesSerializer(serializers.ModelSerializer):
     """Serializer to map the Model instance into JSON format."""
@@ -100,3 +101,13 @@ class VareprisSerializer(serializers.ModelSerializer):
         model = Varepris
         fields = ('__all__')
         read_only_fields = [('produkt_id')]
+
+class v_ordrelinjeSerializer(serializers.ModelSerializer):
+    """Serializer to map the Model instance into JSON format."""
+
+    class Meta:
+        """Meta class to map serializer's fields with the model fields."""
+        model = v_ordrelinje
+        fields = ('__all__')        
+
+

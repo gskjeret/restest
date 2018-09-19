@@ -5,26 +5,6 @@ $(document).ready(function()
     $('#nav_ordre').addClass("active");
 });
 
-// Function for details
-function format ( d ) {
-    console.log(d.ordre_id)
-    // `d` is the original data object for the row
-var linerequest = new XMLHttpRequest();
-linerequest.open('GET', 'http://127.0.0.1:8000/orders/', false);
-linerequest.send();
-var JSONdata = JSON.parse(linerequest.response);
-    var linetable = DataTable( {
-        
-        data:         JSONdata,
-        columns: [                   
-                     { data: "ordrelinje_id"},
-                     { title: "Linjenr", data: "linjenr"},
-
-        ]
-    } );
-return linetable;
-}
-
 // Create a request variable and assign a new XMLHttpRequest object to it.
 var request = new XMLHttpRequest();
 
@@ -32,13 +12,11 @@ var request = new XMLHttpRequest();
 request.open('GET', 'http://127.0.0.1:8000/orders/', true);
 
 request.onload = function () {
-  // Begin accessing JSON data here
-  var JSONdata = JSON.parse(this.response);
-
+    // Begin accessing JSON data here
+    var JSONdata = JSON.parse(this.response);
     var table = $('#ordreliste_table').DataTable( {
         
-        data: 
-        JSONdata,
+        data:    JSONdata,
         columns: [
                     {   "className":      'details-control',
                         "orderable":      false,
@@ -59,19 +37,36 @@ request.onload = function () {
     $('#ordreliste_table tbody').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');
         var row = table.row( tr );
-        if ( row.child.isShown() ) {
-            // This row is already open - close it
-            row.child.hide();
-            tr.removeClass('shown');
-        }
-        else {
-            // Open this row
-            row.child( format(row.data()) ).show();
-            tr.addClass('shown');
-        }
-    });
-};
+        $('#ordreliste_table tbody tr.shown').removeClass('shown')
 
+        // Show details for this row
+        tr.addClass('shown');
+
+        // Asynchronously display orderlines
+        var linerequest = new XMLHttpRequest();
+        linerequest.open('GET', 'http://127.0.0.1:8000/v_ordrelinje/?order='+row.data().ordre_id, true);
+        linerequest.onload = function () {
+            // Begin accessing JSON data here
+            var JSONlinedata = JSON.parse(this.response);
+            console.log(JSONlinedata)
+            var table = $('#ordrelinjeliste_table').DataTable( {
+                destroy: true,
+                data: JSONlinedata,
+                columns: [
+                            { data: "ordrelinje_id"},
+                            { data: "ordre"},
+                            { title: "Linje", data: "linjenr"},
+                            { title: "kode", data: "produktkode"},
+                            { title: "Produkt", data: "produktnavn"},
+                            { title: "Rabatt%", data: "rabatt_pros"},
+                            { title: "Beløp", data: "belop_linje_u_mva"},
+                            { title: "Kommentar", data: "kommentar"},
+                        ]
+            });
+        } 
+        linerequest.send();
+    } 
+)} 
 
 // Send request
 request.send();
