@@ -15,6 +15,8 @@
 </head>
 <body>
 
+
+	
 <div class="super_container">
 	<!-- Header -->
 
@@ -57,12 +59,12 @@
 							</div>
 							<nav class="main_nav_contaner">
 								<ul class="main_nav">
-									<li id="nav_hjem"><a href="http://127.0.0.1:8000/home/home">Hjem</a></li>
-									<li id="nav_kunder"><a href="http://127.0.0.1:8000/home/kunder">Kunder</a></li>
-									<li id="nav_ordre"><a href="http://127.0.0.1:8000/home/ordre">Ordre</a></li>
-									<li id="nav_produkter"><a href="http://127.0.0.1:8000/home/produkter">Produkter</a></li>
-									<li id="nav_lev"><a href="http://127.0.0.1:8000/home/leverandorer">Leverandører</a></li>
-									<li id="nav_apidoc"><a href="http://127.0.0.1:8000/swagger">APIdoc</a></li>
+									<li id="nav_hjem"><a href="{% url 'home' %}">Hjem</a></li>
+									<li id="nav_kunder"><a href="{% url 'kunder' %}">Kunder</a></li>
+									<li id="nav_ordre"><a href="{% url 'ordre' %}">Ordre</a></li>
+									<li id="nav_produkter"><a href="{% url 'produkter' %}">Produkter</a></li>
+									<li id="nav_lev"><a href="{% url 'leverandorer' %}">Leverandører</a></li>
+									<li id="nav_apidoc"><a href="{% url 'swagger' %}">APIdoc</a></li>
 								</ul>
 							</nav>
 
@@ -91,12 +93,12 @@
 		</div>
 		<nav class="menu_nav">
 			<ul class="menu_mm">
-				<li class="menu_mm"><a href="home">Hjem</a></li>
-				<li class="menu_mm"><a href="kunder">Kunder</a></li>
-				<li class="menu_mm"><a href="ordre">Ordre</a></li>
-				<li class="menu_mm"><a href="produkter">Produkter</a></li>
-				<li class="menu_mm"><a href="leverandorer">Leverandører</a></li>
-				<li class="menu_mm"><a href="http://127.0.0.1:8000/swagger">APIdoc</a></li>
+				<li class="menu_mm"><a href="{% url 'home' %}">Hjem</a></li>
+				<li class="menu_mm"><a href="{% url 'kunder' %}">Kunder</a></li>
+				<li class="menu_mm"><a href="{% url 'ordre' %}">Ordre</a></li>
+				<li class="menu_mm"><a href="{% url 'produkter' %}">Produkter</a></li>
+				<li class="menu_mm"><a href="{% url 'leverandorer' %}">Leverandører</a></li>
+				<li class="menu_mm"><a href="{% url 'swagger' %}">APIdoc</a></li>
 			</ul>
 		</nav>
 	</div>

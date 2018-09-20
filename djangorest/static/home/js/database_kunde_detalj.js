@@ -43,7 +43,7 @@ function submit_form(value) {
 
     }
     xmlhttp.send(JSON.stringify(value, null, "  "));
-    window.location.replace("http://127.0.0.1:8000/home/kunder");
+    window.location.replace("{% url 'kunder' %}");
 }
 
 function delete_form() {
@@ -59,7 +59,7 @@ function delete_form() {
         success: console.log("Success"),
         error: console.log("Failure")
     });
-    window.location.replace("http://127.0.0.1:8000/home/kunder");
+    window.location.replace("{% url 'kunder' %}");
 }
 
 function populate_form(p_title) {
