@@ -1,0 +1,4 @@
+*.sql linguist-language=MySQL
+djangorest/static/plugins/* linguist-vendored
+main_styles.css linguist-vendored
+responsive.css linguist-vendored

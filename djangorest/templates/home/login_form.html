@@ -14,11 +14,11 @@
                     action="{% url 'home_login' %}"
                     method="post">
                     {% csrf_token %}
-          
                     {{ form }}
-                    
-                    <div><button type="submit" class="home_button btn-success trans_200">Logg inn</button></div>
-              </form>
+                    <div>
+                        <button type="submit" class="home_button btn-success trans_200">Logg inn</button>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>
