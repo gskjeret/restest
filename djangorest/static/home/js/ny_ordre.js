@@ -70,6 +70,12 @@ request.onload = function () {
                     + ' pattern="[0-9]*" value="1" maxlength="3" class="adjust-input" input-type="number">'
                     + '<button class="adjust-button" onClick="pb_increase(this, 1)">+</button>' ; },
             },
+            { orderable:      false,
+            data:           null,
+            render: function ( data, type, row ) 
+                { return '<button class="buy-button" onClick="buy(this)">Kjøp</button>' ; },
+            },
+
         ],
     } );
 };
@@ -77,8 +83,11 @@ request.onload = function () {
 // Send request
 request.send();
 
+// Update amount for the correct row. Make sure amount doesn't exceed stock
+// or go below 1.
 function pb_increase(context, amount) {
     var data = table.row( $(context).parents('tr') ).data();
     var target = '#product-quantity-'+data.produkt_id;
-    $(target).val(parseInt($(target).val())+amount);
+    var result = parseInt($(target).val())+amount;
+    if (result > 0 && result <= data.beholdning) $(target).val(result);
 }
