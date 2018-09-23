@@ -2,7 +2,7 @@ from django.conf.urls import url
 from django.contrib.auth.views import LoginView, LogoutView
 
 from .views import home, kunder, ordre, produkter, leverandorer
-from .views import kunde_detalj, produkt_detalj, leverandor_detalj
+from .views import kunde_detalj, produkt_detalj, leverandor_detalj, ny_ordre
 
 urlpatterns = [
     url(r'home$', home, name="home"),
@@ -19,4 +19,5 @@ urlpatterns = [
     url(r'kunder/(?P<kid>\d+)/$', kunde_detalj, name="kunde_detalj"),
     url(r'produkter/(?P<pid>\d+)/$', produkt_detalj, name="produkt_detalj"),
     url(r'leverandorer/(?P<lid>\d+)/$', leverandor_detalj, name="leverandor_detalj"),
+    url(r'ny_ordre/(?P<kid>\d+)/$', ny_ordre, name="ny_ordre"),
 ]

@@ -5,14 +5,14 @@ $(document).ready(function()
     $('#nav_kunder').addClass("active");
 });
 
-
+// Formats extra data visible on expand
 function format ( d ) {
     console.log(d.kunde_id)
  
     var extra_info = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
     var k1 = d.kontaktperson + ", tlf. " + d.telefonnr1;
     var k2 = d.kontaktperson2 + ", tlf. " + d.telefonnr2;
-    
+
     if (d.kontaktperson || d.telefonnr1) extra_info +=
         '<tr>'+
         '<td>Kontaktperson:</td>'+
@@ -22,6 +22,14 @@ function format ( d ) {
         '<tr>'+
         '<td>Kontaktperson:</td>'+
         '<td>'+ k2 +'</td>'+
+    '</tr>';
+ 
+    extra_info +=
+        '<tr>'+
+        '<td>Ny ordre: <a href="'+
+        "/home/ny_ordre/"+d.kunde_id+'/"'+
+        '><button type="button" class="pushbutton">Ny ordre</button></a></td>'+
+        '<td>' +'</td>'+
     '</tr>';
 
 extra_info += '</table>';

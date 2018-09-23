@@ -34,3 +34,7 @@ def produkt_detalj(request, pid):
 @login_required
 def leverandor_detalj(request, lid):
     return render(request, "home/leverandor_detalj.html", {'leverandorid': lid})
+
+@login_required
+def ny_ordre(request, kid):
+    return render(request, "home/ny_ordre.html", {'kundeid': kid})

@@ -7,16 +7,19 @@
 
 	<div class="home">
 		<div class="db_content">
-			<h1 class="home_title">Produkter</h1>
-		<div id ="produktliste">
+			<h1 class="home_title">Opprett ny ordre</h1>
+			<h2 class="home_title" id="kundenavn"></h2>
+    		<div id ="produktliste">
 			<table id="produktliste_table" class="display" width="90%"></table>
-			</div>
-				<a href="{% url 'produkter' %}/0/"><button type="button" class="pushbutton">Opprett produkt</button></a>
-		</div>
-	</div>
-
+            </div>
+    	</div>
+    </div>
 
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script src="{% static 'home/js/database_produkter.js' %}"></script>
-
+<script src="{% static 'home/js/ny_ordre.js' %}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        last_kunde("{{ kundeid }}");
+    });
+</script>
 {% endblock %}
