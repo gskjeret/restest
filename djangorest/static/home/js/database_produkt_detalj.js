@@ -45,10 +45,24 @@ function populate_form(p_title) {
                     "title": "Navn",
                     "required": true
                 },
-                "beskrivelse": {
+                "produktkategori": {
                     "type": "string",
-                    "title": "Beskrivelse",
+                    "title": "Kategori",
+                    "enum": ["Brennevin", "Svakvin", "Øl", "Sterkvin" ],
                     "required": true
+                },
+                "produkttype": {
+                    "type": "string",
+                    "title": "Type",
+                    "required": true
+                },
+                "produktopprinnelse": {
+                    "type": "string",
+                    "title": "Opprinnelse",
+                },
+                "produktaar": {
+                    "type": "string",
+                    "title": "Årgang",
                 },
                 "produktkode": {
                     "type": "string",
