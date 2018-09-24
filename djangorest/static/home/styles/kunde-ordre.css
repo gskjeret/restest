@@ -17,6 +17,16 @@
 	opacity:0.9;
 }
 
+.shoppingcart-icon {
+	background: url('../images/shopping-48.png') no-repeat center center;
+	object-fit: contain;
+}
+
+.burger-menu {
+	background: url('../images/burger_48.png') no-repeat center center;
+	object-fit: contain;
+}
+
 td.details-control {
     background: url('../images/details_open.png') no-repeat center center;
     cursor: pointer;

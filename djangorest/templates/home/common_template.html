@@ -2,113 +2,107 @@
 <!DOCTYPE html>
 <html lang="no">
 <head>
-<title>Frontend-gruppens demo</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Frontend demo">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-<link href="{% static 'home/plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="{% static 'home/styles/main_styles.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'home/styles/responsive.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'home/styles/kunde-ordre.css' %}">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+	<title>Frontend-gruppens demo</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Frontend demo">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'home/styles/main_styles.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'home/styles/responsive.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'home/styles/kunde-ordre.css' %}">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 </head>
 <body>
+	<div class="super_container">
+		<!-- Header -->
 
+		<header class="header">
 
-	
-<div class="super_container">
-	<!-- Header -->
+			<!-- Top Bar -->
+			<div class="top_bar">
+				<div class="top_bar_container">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
+									<div class="top_bar_phone"><a href="https://github.com/gskjeret/restest"><span class="top_bar_title">Github:</span>https://github.com/gskjeret/restest</a></div>
+									<div class="top_bar_right ml-auto">
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="copyright_content d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
+									<div class="cr"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+		Layout basert på template <a href="http://demo.themewagon.com/preview/free-responsive-education-template">Lingua-Master</a> av <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+		<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-	<header class="header">
-
-		<!-- Top Bar -->
-		<div class="top_bar">
-			<div class="top_bar_container">
+			<!-- Header Content (main menu) -->
+			<div class="header_container">
 				<div class="container">
 					<div class="row">
 						<div class="col">
-							<div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
-								<div class="top_bar_phone"><a href="https://github.com/gskjeret/restest"><span class="top_bar_title">Github:</span>https://github.com/gskjeret/restest</a></div>
-								<div class="top_bar_right ml-auto">
+							<div class="header_content d-flex flex-row align-items-center justify-content-start">
+								<div class="logo_container mr-auto">
+									<a href="#">
+										<div class="logo_text">Frontend-gruppens DEMO</div>
+									</a>
 								</div>
-							</div>
-						</div>
-						<div class="col">
-							<div class="copyright_content d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
-								<div class="cr"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-	Layout basert på template <a href="http://demo.themewagon.com/preview/free-responsive-education-template">Lingua-Master</a> av <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
-	<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+								<nav class="main_nav_contaner">
+									<ul class="main_nav">
+										<li id="nav_hjem"><a href="{% url 'home' %}">Hjem</a></li>
+										<li id="nav_kunder"><a href="{% url 'kunder' %}">Kunder</a></li>
+										<li id="nav_ordre"><a href="{% url 'ordre' %}">Ordre</a></li>
+										<li id="nav_produkter"><a href="{% url 'produkter' %}">Produkter</a></li>
+										<li id="nav_lev"><a href="{% url 'leverandorer' %}">Leverandører</a></li>
+										<li id="nav_apidoc"><a href="{% url 'swagger' %}">APIdoc</a></li>
+									</ul>
+								</nav>
 
-		<!-- Header Content (main menu) -->
-		<div class="header_container">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="header_content d-flex flex-row align-items-center justify-content-start">
-							<div class="logo_container mr-auto">
-								<a href="#">
-									<div class="logo_text">Frontend-gruppens DEMO</div>
-								</a>
-							</div>
-							<nav class="main_nav_contaner">
-								<ul class="main_nav">
-									<li id="nav_hjem"><a href="{% url 'home' %}">Hjem</a></li>
-									<li id="nav_kunder"><a href="{% url 'kunder' %}">Kunder</a></li>
-									<li id="nav_ordre"><a href="{% url 'ordre' %}">Ordre</a></li>
-									<li id="nav_produkter"><a href="{% url 'produkter' %}">Produkter</a></li>
-									<li id="nav_lev"><a href="{% url 'leverandorer' %}">Leverandører</a></li>
-									<li id="nav_apidoc"><a href="{% url 'swagger' %}">APIdoc</a></li>
-								</ul>
-							</nav>
+									<!-- Hamburger -->
 
-								<!-- Hamburger -->
-
-								<div class="user"><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></div>
-								<div class="hamburger menu_mm">
-									<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
+									<div class="user shoppingcart-icon" ><a href="#"></a></div>
+									<div class="user hamburger menu_mm burger-menu"><a href="#"></a></div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</header>
+		</header>
 
-	<!-- Menu (burger)-->
+		<!-- Menu (burger)-->
 
-	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
-		<div class="menu_close_container">
-			<div class="menu_close">
-				<div></div>
-				<div></div>
+		<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+			<div class="menu_close_container">
+				<div class="menu_close">
+					<div></div>
+					<div></div>
+				</div>
 			</div>
+			<nav class="menu_nav">
+				<ul class="menu_mm">
+					<li class="menu_mm"><a href="{% url 'home' %}">Hjem</a></li>
+					<li class="menu_mm"><a href="{% url 'kunder' %}">Kunder</a></li>
+					<li class="menu_mm"><a href="{% url 'ordre' %}">Ordre</a></li>
+					<li class="menu_mm"><a href="{% url 'produkter' %}">Produkter</a></li>
+					<li class="menu_mm"><a href="{% url 'leverandorer' %}">Leverandører</a></li>
+					<li class="menu_mm"><a href="{% url 'swagger' %}">APIdoc</a></li>
+				</ul>
+			</nav>
 		</div>
-		<nav class="menu_nav">
-			<ul class="menu_mm">
-				<li class="menu_mm"><a href="{% url 'home' %}">Hjem</a></li>
-				<li class="menu_mm"><a href="{% url 'kunder' %}">Kunder</a></li>
-				<li class="menu_mm"><a href="{% url 'ordre' %}">Ordre</a></li>
-				<li class="menu_mm"><a href="{% url 'produkter' %}">Produkter</a></li>
-				<li class="menu_mm"><a href="{% url 'leverandorer' %}">Leverandører</a></li>
-				<li class="menu_mm"><a href="{% url 'swagger' %}">APIdoc</a></li>
-			</ul>
-		</nav>
-	</div>
 
-	<!-- Content will go here -->
-	{% block content %} {% endblock %}
+		<!-- Content will go here -->
+		{% block content %} {% endblock %}
 
-<script src="{% static 'home/plugins/easing/easing.js' %}"></script>
-<script src="{% static 'home/js/custom.js' %}"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<script src="{% static 'home/plugins/easing/easing.js' %}"></script>
+	<script src="{% static 'home/js/custom.js' %}"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
 </html>
