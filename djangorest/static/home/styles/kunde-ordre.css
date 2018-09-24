@@ -97,3 +97,8 @@ tr.shown td.details-control {
 	transition: all 500ms ease;
 }
 
+::selection
+{
+	color: #ffffff;
+	background: #000000;
+}
