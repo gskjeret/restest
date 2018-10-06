@@ -3,17 +3,34 @@ var table;
 var cart_table;
 var basket = [];
 
+// Try to increase amount by 1. If not found, return false.
+function basket_increase_amount(produkt_id, delta){
+    var found = false;
+    basket.forEach(function (item)  {
+        if (item.productId === produkt_id) {
+            found = true;
+            if (item.amount < item.stock) item.amount+=delta;
+        }
+    });
+    console.log("Returning "+found)
+    return found;
+}
+
 // Add an item to basket
-// TODO: If item already exists, just add 1 to amount
+// If item already exists, just add 1 to amount
 function basket_add(produkt_id){
-    var item = {
-        productId: produkt_id,
-        amount: 1,
-        stock: 10,
-        customerId: gkid,
-    };
-    basket.push(item);
-    basket_update();
+    console.log("Basket_add: "+produkt_id)
+    var found = false;
+    if (!basket_increase_amount(produkt_id, 1)){
+        var item = {
+            productId: produkt_id,
+            amount: 1,
+            stock: 10,
+            customerId: gkid,
+        };
+        basket.push(item);
+        basket_update();
+    }
 }
 
 // Delete an item from basket
@@ -57,7 +74,9 @@ function basket_toggle(){
                     + '<input id="product-quantity-'
                     + row.productId
                     + '"'
-                    + ' pattern="[0-9]*" value="1" maxlength="3" class="adjust-input" type="text">'
+                    + ' pattern="[0-9]*" value="'
+                    + row.amount
+                    +'" maxlength="3" class="adjust-input" type="text">'
                     + '<button class="adjust-button" onClick="pb_increase(this, 1)">+</button>' ; },
             },
         ]
@@ -66,7 +85,6 @@ function basket_toggle(){
 
 //Send basket to database, and clear it
 function basket_send() {
-
     basket=[];
     basket_update();
     basket_toggle();
@@ -153,5 +171,8 @@ function pb_increase(context, amount) {
     var data = cart_table.row( $(context).parents('tr') ).data();
     var target = '#product-quantity-'+data.productId;
     var result = parseInt($(target).val())+amount;
-    if (result > 0 && result <= data.stock) $(target).val(result);
+    if (result > 0 && result <= data.stock) {
+        $(target).val(result);
+        basket_increase_amount(data.productId, amount);
+    }
 }
