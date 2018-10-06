@@ -5,13 +5,17 @@
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 
+<div id="basketface" class="basketface-back">
+	<table id="basket_table" class="display" width="100%"></table>
+	<button class="buy-button" onClick="basket_send()">Send bestilling</button>'
+</div>
 	<div class="home">
 		<div class="db_content">
 			<h1 class="home_title">Opprett ny ordre</h1>
 			<h2 class="home_title" id="kundenavn"></h2>
 		<div id ="produktliste">
 			<table id="produktliste_table" class="display" width="90%"></table>
-					</div>
+		</div>
 				<a href="{% url 'produkter' %}/0/"><button type="button" class="pushbutton">Opprett produkt</button></a>
 		</div>
 	</div>
@@ -20,7 +24,7 @@
 <script src="{% static 'home/js/ny_ordre.js' %}"></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        last_kunde("{{ kundeid }}");
+        init_kunde("{{ kundeid }}");
     });
 </script>
 {% endblock %}

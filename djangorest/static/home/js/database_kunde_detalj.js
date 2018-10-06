@@ -3,8 +3,16 @@ var request = new XMLHttpRequest();
 var JSONdata;
 var gkid;
 
-function last_kunde(kid) {
+function init_kunde(kid) {
     gkid = kid;
+
+    // Hover highlight handler
+    //TODO: Doesnt' work...
+    $('.alpaca-control').hover(function () {
+        $(this).toggleClass("input-highlight");
+        console.log(this);
+    });
+
     if (kid > 0) {
         // Open a new connection, using the GET request on the URL endpoint
         request.open('GET', 'http://127.0.0.1:8000/customers/' + kid + '/', true);
