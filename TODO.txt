@@ -2,6 +2,8 @@ Enkle oppgaver til å komme i gang med
 -------------------------------------
 
 Handlekorg: Vis varenavn, ikke bare nr
+Handlekorg: Vis pris for hver vare
+Handlekorg: Vis totalpris
 Finne bedre ikoner for open/close (de ligger i static/home/images)
 Refaktorere dårlige variabelnavn etc.
 Siden Ny ordre har en knapp for Opprett produkt. Fjernes.

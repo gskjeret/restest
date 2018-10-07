@@ -12,14 +12,12 @@ function basket_increase_amount(produkt_id, delta){
             if (item.amount < item.stock) item.amount+=delta;
         }
     });
-    console.log("Returning "+found)
     return found;
 }
 
 // Add an item to basket
 // If item already exists, just add 1 to amount
 function basket_add(produkt_id){
-    console.log("Basket_add: "+produkt_id)
     var found = false;
     if (!basket_increase_amount(produkt_id, 1)){
         var item = {
@@ -85,6 +83,37 @@ function basket_toggle(){
 
 //Send basket to database, and clear it
 function basket_send() {
+    $.ajaxSetup({
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader('X-CSRFTOKEN', csrftoken);
+        }
+    });
+    $.ajax({
+        type: 'POST',
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        accept: "application/json",
+        url: 'http://127.0.0.1:8000/orders/',
+        data: JSON.stringify({
+            "ordre_dato": new Date(),
+            "belop_u_mva": 0,
+            "mva_belop": 0,
+            "totalbelop": 0,
+            "notat": "",
+            "kunde": gkid,
+            "status": "NY"
+        }),
+        success: function(msg){
+            alert('Success: ' + msg);
+        },
+        failure: function(msg){
+            alert('Failure: ' + msg);
+        },
+        done: function(msg){
+            alert('Done: ' + msg);
+        },
+    });
+
     basket=[];
     basket_update();
     basket_toggle();
@@ -166,8 +195,6 @@ request.send();
 // Update amount for the correct row. Make sure amount doesn't exceed stock
 // or go below 1.
 function pb_increase(context, amount) {
-    console.log(context);
-    console.log(amount)
     var data = cart_table.row( $(context).parents('tr') ).data();
     var target = '#product-quantity-'+data.productId;
     var result = parseInt($(target).val())+amount;
