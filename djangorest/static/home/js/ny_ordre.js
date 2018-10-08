@@ -104,7 +104,37 @@ function basket_send() {
             "status": "NY"
         }),
         success: function(msg){
-            alert('Success: ' + msg);
+            // When successful, create JSON for orderlines and send them 
+            var orderlines=[];
+            var i = 0;
+            console.log(msg.ordre_id)
+            basket.forEach(function (item)  {
+                let orderline = {
+                    "linjenr": i++,
+                    "antall": item.amount,
+                    "rabatt_pros": 0,
+                    "belop_linje_u_mva": 0,
+                    "kommentar": "Opprettet med AJAX",
+                    "ordre": msg.ordre_id,
+                    "produkt": item.productId
+                  }
+                  orderlines.push(orderline);
+                })
+                console.log(orderlines)
+                  $.ajax({
+                    type: 'POST',
+                    dataType : "json",
+                    contentType: "application/json; charset=utf-8",
+                    accept: "application/json",
+                    url: 'http://127.0.0.1:8000/orderlines/',
+                    data: JSON.stringify(orderlines),
+                    success: function(msg){
+                        console.log("Orderlines success: "+msg);
+                        basket=[];
+                        basket_update();
+                    }
+                  });
+            
         },
         failure: function(msg){
             alert('Failure: ' + msg);
@@ -114,8 +144,6 @@ function basket_send() {
         },
     });
 
-    basket=[];
-    basket_update();
     basket_toggle();
 }
 

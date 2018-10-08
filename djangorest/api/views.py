@@ -34,6 +34,15 @@ class OrdrelinjeCreateView(generics.ListCreateAPIView):
     serializer_class = OrdrelinjeSerializer
     def perform_create(self, serializer):
         serializer.save()
+    def get_serializer(self, *args, **kwargs):
+        if "data" in kwargs:
+            data = kwargs["data"]
+
+            # check if many is required
+            if isinstance(data, list):
+                kwargs["many"] = True
+
+        return super(OrdrelinjeCreateView, self).get_serializer(*args, **kwargs)
 
 class OrdrelinjeFilterView(generics.ListCreateAPIView):
     queryset = v_ordrelinje.objects.all()
